@@ -1,7 +1,17 @@
 package pngstore.commands;
 
 public enum Operation {
-	HELP,
-	PACK,
-	UNPACK
+    HELP(new PngHelpCommand()),
+    PACK(new PngPackCommand()),
+    UNPACK(new PngUnpackCommand());
+
+    private final Command command;
+
+    Operation(Command command) {
+        this.command = command;
+    }
+
+    public Command getCommand() {
+        return command;
+    }
 }
